@@ -1,0 +1,42 @@
+body {
+	font-family: monospace;
+}
+
+div.quoteContainer {
+	width: 900px;
+}
+
+div.upArrow {
+	float:right;
+}
+div.upArrow:hover {
+	background-color: #E9F1E8;
+	cursor: pointer;
+}
+
+div.downArrow {
+	float:right;
+}
+
+div.quoteIDBox {
+	border-color:#BFBFBF;
+	border-style:solid;
+	border-width: 1px;
+	background-color:#dedede;
+}
+
+div.quote {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #BFBFBF;
+	background-color:#dedede;
+	margin-bottom:5px;
+}
+
+#success {
+	color:#32cd32;
+}
+
+#failure{
+	color:#ff0000;
+}
