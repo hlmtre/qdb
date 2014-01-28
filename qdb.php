@@ -9,7 +9,9 @@ require_once("./sanitizer.php");
 <body>
 <a href="./submit.php">Submit a new quote</a>
 <?
-if (sanitize($_GET['sort']) == "vote")
+# doesn't need to be sanitized; not going to the database
+#print_r(sanitize($_GET));
+if ($_GET['sort'] == "vote")
   echo '<a href="./qdb.php?sort=date">Sort by date</a>';
 else
   echo '<a href="./qdb.php?sort=vote">Sort by vote</a>';
