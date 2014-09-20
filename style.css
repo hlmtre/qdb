@@ -24,6 +24,11 @@ div.downArrow {
 	float:right;
 }
 
+.quoteDate {
+		margin-right:30%;
+		margin-left:30%;
+}
+
 div.quoteIDBox {
 	border-color:#BFBFBF;
 	border-style:solid;

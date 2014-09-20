@@ -6,7 +6,7 @@ $db = new MySQL();
 $query = "SELECT votes FROM qdb_votes WHERE quote_id = ".sanitize($_POST['id']);
 
 $result = $db->setRunBuild($query);
-$votes = $result[0][0]['votes'];
+$votes = $result[0]['votes'];
 if (isset($votes)) {
   $newVote = $votes + sanitize($_POST['vote']);
   $query = "UPDATE qdb_votes SET votes = ".$newVote." WHERE quote_id = ".sanitize($_POST['id']);

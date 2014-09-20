@@ -6,7 +6,7 @@ class MySQL{
 
 	private $sHostname = "localhost";
 	private $sUsername = "pybot";
-	private $sPassword = "1q2w3e4r";
+	private $sPassword = "pyb07";
 	private $sDatabase = "pybot";
 
 	public $sDBLink;
@@ -70,6 +70,13 @@ class MySQL{
 			$this->sError = mysql_error($this->sDBLink);
 			return false;
 		}
+	}
+
+	function updateQuoteById($id, $quote) {
+		$query = "UPDATE qdb set quote = " . $quote . " WHERE id = " . $id ;
+		$result = mysql_query($query, $this->sDBLink) or die(mysql_error($this->sDBLink));
+		print_r($result);
+
 	}
 
 	function getLastInsertID() {
@@ -144,18 +151,6 @@ class MySQL{
 	function checkTaken($username){
 		$query = "SELECT * FROM users WHERE username = '".$username."'";
 		$result = mysql_query($query, $this->sDBLink) or die(mysql_error($this->sDBLink));
-		if (mysql_num_rows($result) > 0){
-			return TRUE;
-		}else{
-			return FALSE;
-		}
-	}
-	
-	// Returns true if gallery name is taken
-	function checkGal($galurl){
-		$query = "SELECT * FROM galleries WHERE gal_URL = '".$galurl."'";
-		$result = mysql_query($query, $this->sDBLink) or die(mysql_error($this->sDBLink));
-
 		if (mysql_num_rows($result) > 0){
 			return TRUE;
 		}else{

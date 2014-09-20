@@ -8,6 +8,7 @@ require_once("./sanitizer.php");
 </head>
 <body>
 <a href="./qdb.php">Back to quotes list</a>
+<a href="./update.php?id=<? echo $_GET['id'] ?>">Update</a>
 <?
 function  autolink($message) { 
 	//Convert all urls to links
@@ -23,11 +24,21 @@ function  autolink($message) {
 	//$message = preg_replace($pattern, $replacement, $message);
 	return $message;
 }
+if (!is_numeric($_GET['id'])) {
+  echo "Bad ID.";
+  exit;
+}
+
 $db = new MySQL();
 $i = 1;
 $query = "SELECT * FROM qdb WHERE id = " . sanitize($_GET['id']);
 $result = $db->setRunBuild($query);
-#print_r($rows);
+#print_r($result);
+if (! $result) {
+  echo "Bad ID.";
+  exit;
+}
+
 foreach ($result as $key => $value) {
 	echo "<div class='quoteContainer'>\n";
 	echo "<div class='quoteIDBox'>\n";

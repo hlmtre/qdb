@@ -29,7 +29,7 @@ $db = new MySQL();
 if (sanitize($_GET['sort']) == "vote")
   $query = "SELECT * FROM qdb q LEFT JOIN qdb_votes qv ON qv.quote_id = q.id ORDER BY qv.votes DESC";
 else
-  $query = "SELECT * FROM qdb q LEFT JOIN qdb_votes qv ON qv.quote_id = q.id ORDER BY q.date DESC";
+  $query = "SELECT * FROM qdb q LEFT JOIN qdb_votes qv ON qv.quote_id = q.id ORDER BY q.id DESC";
 
 $rows = $db->setRunBuild($query);
 $i = 1;
@@ -38,8 +38,12 @@ foreach ($rows as $key => $value) {
 	echo "<div class='quoteIDBox'>\n";
 	echo "<a href='./quote.php?id=".$value['id']."'>#".$value['id']."</a>";
   echo " votes: ";
-  if (isset($value['votes']) ) echo "<span id='voteValue".$value['id']."'>" .$value['votes']; else echo "0";
+  echo "<span id='voteValue".$value['id']."'>";
+  if (isset($value['votes'])) echo $value['votes']; else echo "0";
   echo "</span>"; # end voteValue span
+	echo "<span class='quoteDate'>";
+	echo $value['date'];
+	echo "</span>";
 	echo "<div class='downArrow' id='".$value['id']."'>";
 	echo "&darr;";
 	echo "</div>";
@@ -77,7 +81,9 @@ function() {
 
 $(".upArrow").click(function(event) {
 	var p = {};
-	p['id'] = $(this).attr('id');
+	var id = p['id'] = $(this).attr('id');
+  // incremement the votevalue
+  $("#voteValue"+id)[0].innerHTML = parseInt($("#voteValue"+id)[0].innerHTML) + 1;
 	p['vote'] = "1";
 	$.post(
 		'vote.php',
@@ -92,7 +98,9 @@ $(".upArrow").click(function(event) {
 });
 $(".downArrow").click(function(event) {
 	var p = {};
-	p['id'] = $(this).attr('id');
+	var id = p['id'] = $(this).attr('id');
+  // decrement vote value
+  $("#voteValue"+id)[0].innerHTML = parseInt($("#voteValue"+id)[0].innerHTML) - 1;
 	p['vote'] = "-1";
 	$.post(
 		'vote.php',
@@ -100,7 +108,6 @@ $(".downArrow").click(function(event) {
 		function(data) {
 			var jobj = jQuery.parseJSON(data);
 			event.target.innerHTML = jobj.text;
-			console.log(jobj);
 		}
 	);
   $(this).unbind('click');

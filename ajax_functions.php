@@ -2,6 +2,10 @@
 require_once("./header.php");
 require_once("./sanitizer.php");
 
+if ($_POST['verb'] == "update") {
+	print_r($_POST);
+}
+
 if ($_POST['verb'] == "submit") {
 	$dirtyquote = $_POST['quotebox'];
 	$cleaned = mysql_escape_string($dirtyquote);
