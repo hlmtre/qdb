@@ -47,6 +47,7 @@ foreach ($result as $key => $value) {
 	echo "<div class='quoteContainer'>\n";
 	echo "<div class='quoteIDBox'>\n";
 	echo "<a href='./quote.php?id=".$value['id']."'>#".$value['id']."</a>";
+	echo "<button class='quotePlayBtn' id='".$value['id']."'>&#9658;</button>";
 	echo "<div class='downArrow' id='".$value['id']."'>";
 	echo "&darr;";
 	echo "</div>";
@@ -54,7 +55,7 @@ foreach ($result as $key => $value) {
 	echo "&uarr;";
 	echo "</div>";
 	echo "</div>"; // quote id
-	echo "<div class='quote' id='quote".$value['id'].">\n";
+	echo "<div class='quote' id='quote".$value['id']."'>\n";
 	echo "<a name='".$value['id']."'>";
 	$value['quote'] = str_replace("<","< ", $value['quote']);
 	echo str_replace("\n", "<br />", autolink($value['quote']));
@@ -66,6 +67,7 @@ foreach ($result as $key => $value) {
 ?>
 <script src="./jquery-1.8.3.min.js"></script>
 <script src="./jquery-ui.js"></script>
+<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
 <script>
 $(".upArrow").hover(
 function() {
@@ -80,6 +82,16 @@ function() {
 },
 function() {
 	$(this).css('color','');
+});
+
+$(".quotePlayBtn").click(function(){
+	var quoteNum = $(this).attr('id');
+	var quoteText = $('#quote'+quoteNum+' a').html();
+	quoteText = quoteText.replace(/&lt;(.*?)&gt;/gi,'');
+	quoteText = quoteText.replace(/<br>/gi,'.');
+	quoteText = quoteText.replace(/(?:\r\n|\r|\n)/gi, '');
+	console.log(quoteText);
+	responsiveVoice.speak(quoteText,"US English Female");
 });
 
 $(".upArrow").click(function(event) {
