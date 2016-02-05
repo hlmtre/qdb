@@ -133,7 +133,7 @@ $(".downArrow").click(function(event) {
 });
 </script>
 <?
-echo "copyright LOLOLOL valve corporation";
+echo "copyright LOLOLOL hlmtre 2015/2016";
 echo "</div>"; # end content div
 echo "</body></html>";
 
