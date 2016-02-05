@@ -1,4 +1,0 @@
-<?
-require_once('./class.MySQL.php');
-?>
-<script src="./jquery-1.8.3.min.js"></script>
