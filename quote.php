@@ -47,7 +47,7 @@ foreach ($result as $key => $value) {
 	echo "<div class='quoteContainer'>\n";
 	echo "<div class='quoteIDBox'>\n";
 	echo "<a href='./quote.php?id=".$value['id']."'>#".$value['id']."</a>";
-	echo "<button class='quotePlayBtn playBtn' id='".$value['id']"'>&#9658;</button><button class='quoteCancelBtn playBtn'>&#9632;</button>";
+	echo "<button class='quotePlayBtn playBtn' id='".$value['id']."'>&#9658;</button><button class='quoteCancelBtn playBtn'>&#9632;</button>";
 	echo "<div class='downArrow' id='".$value['id']."'>";
 	echo "&darr;";
 	echo "</div>";
