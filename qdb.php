@@ -183,31 +183,37 @@ $(".quotePlayBtn").click(function(){
 
 $(".upArrow").click(function(event) {
 	var p = {};
-	p['id'] = $(this).attr('id');
-	p['verb'] = "upvote";
+	var id = p['id'] = $(this).attr('id');
+  // incremement the votevalue
+  $("#voteValue"+id)[0].innerHTML = parseInt($("#voteValue"+id)[0].innerHTML) + 1;
+	p['vote'] = "1";
 	$.post(
-		'ajax_functions.php',
+		'vote.php',
 		p, 
 		function(data) {
 			var jobj = jQuery.parseJSON(data);
 			event.target.innerHTML = jobj.text;
 		}
 	);
+  $(this).unbind('click');
+  $(this).unbind('hover');
 });
 $(".downArrow").click(function(event) {
-	console.log("foobar");
 	var p = {};
-	p['id'] = $(this).attr('id');
-	p['verb'] = "downvote";
+	var id = p['id'] = $(this).attr('id');
+  // decrement vote value
+  $("#voteValue"+id)[0].innerHTML = parseInt($("#voteValue"+id)[0].innerHTML) - 1;
+	p['vote'] = "-1";
 	$.post(
-		'ajax_functions.php',
+		'vote.php',
 		p, 
 		function(data) {
 			var jobj = jQuery.parseJSON(data);
 			event.target.innerHTML = jobj.text;
-			console.log(jobj);
 		}
 	);
+  $(this).unbind('click');
+  $(this).unbind('hover');
 });
 
 function getRandomInt(min,max){
