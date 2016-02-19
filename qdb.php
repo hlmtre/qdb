@@ -173,10 +173,13 @@ $(".quotePlayBtn").click(function(){
 			text = text.replace(/hlmtre/gi, 'hellmighter').trim();
 			text = text.replace(/dorj/gi, 'doorge').trim();
 			text = text.replace(/muh/gi, 'mah').trim();
+			text = text.replace(/mfw/gi, 'my face when').trim();
+			text = text.replace(/tfw/gi, 'that feel when').trim();
+			text = text.replace(/bonekin/gi, 'bone kin').trim();
 			text = text.replace(/\( ͡° ͜ʖ ͡°\)/gi, 'I want da booty');
 			text = text.replace(/\[(.*?)\]/gi,'').trim();
 			text = text.replace(/\((.*?)\)/gi,'').trim();
-			text = text.replace(/[^a-zA-Z0-9' ]/gi, " ").trim();
+			text = text.replace(/[^a-zA-Z0-9'$ ]/gi, " ").trim();
 			return text;
 	}
 });
