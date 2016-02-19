@@ -76,9 +76,8 @@ var playStatus = true;
 var voiceArray = ['UK English Female',
 				'US English Female',
 				'UK English Male',
-				'Spanish Female',
 				'Australian Female'];
-var pitchArray =[0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5,1.6];
+var pitchArray =[0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4];
 
 $(".upArrow").hover(
 function() {
@@ -170,10 +169,13 @@ $(".quotePlayBtn").click(function(){
 			text = text.replace(/hlmtre/gi, 'hellmighter').trim();
 			text = text.replace(/dorj/gi, 'doorge').trim();
 			text = text.replace(/muh/gi, 'mah').trim();
+			text = text.replace(/mfw/gi, 'my face when').trim();
+			text = text.replace(/tfw/gi, 'that feel when').trim();
+			text = text.replace(/bonekin/gi, 'bone kin').trim();
 			text = text.replace(/\( ͡° ͜ʖ ͡°\)/gi, 'I want da booty');
 			text = text.replace(/\[(.*?)\]/gi,'').trim();
 			text = text.replace(/\((.*?)\)/gi,'').trim();
-			text = text.replace(/[^a-zA-Z0-9' ]/gi, " ").trim();
+			text = text.replace(/[^a-zA-Z0-9'$ ]/gi, " ").trim();
 			return text;
 	}
 });
