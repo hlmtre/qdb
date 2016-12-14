@@ -68,7 +68,7 @@ foreach ($result as $key => $value) {
 <script src="./jquery-1.8.3.min.js"></script>
 <script src="./jquery-ui.js"></script>
 <script src="./lodash.js"></script>
-<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 <script>
 _u = _.noConflict();
 

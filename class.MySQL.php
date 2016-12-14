@@ -23,22 +23,27 @@ class MySQL{
 	// Connects class to DB
 	function Connect(){
 		if ($this->sDBLink){
-			mysql_close($this->sDBLink);
+			mysqli_close($this->sDBLink);
 		}
 
-		$this->sDBLink = mysql_connect($this->sHostname, $this->sUsername, $this->sPassword);
+		$this->sDBLink = mysqli_connect($this->sHostname, $this->sUsername, $this->sPassword);
 		
 		if (!$this->sDBLink){
-			$this->sError = 'Could not connect to server: ' . mysql_error($this->sDBLink);
+			$this->sError = 'Could not connect to server: ' . mysqli_error($this->sDBLink);
 			return false;
 		}
 
 		if (!$this->UseDB()){
-			$this->sError = 'Could not connect to database: ' . mysql_error($this->sDBLink);
+			$this->sError = 'Could not connect to database: ' . mysqli_error($this->sDBLink);
 			return false;
 		}
 		// for testing only
 		return true;
+	}
+
+	function getDB(){
+		$this->Connect();
+		return $this->sDBLink;
 	}
 
 	function isConnected() {
@@ -52,8 +57,8 @@ class MySQL{
 
 	// Selects database to use
 	function UseDB(){
-		if (!mysql_select_db($this->sDatabase, $this->sDBLink)) {
-			$this->sError = 'Cannot select database: ' . mysql_error($this->sDBLink);
+		if (!mysqli_select_db($this->sDBLink, $this->sDatabase)) {
+			$this->sError = 'Cannot select database: ' . mysqli_error($this->sDBLink);
 			return false;
 		}else{
 			return true;
@@ -63,18 +68,18 @@ class MySQL{
 	// Executes MySQL query
 	function ExecuteSQL($sSQLQuery){
 		$this->sLastQuery = $sSQLQuery;
-		if($this->aResult = mysql_query($sSQLQuery, $this->sDBLink)){
-			$this->lastInsertID = mysql_insert_id();
+		if($this->aResult = mysqli_query($this->sDBLink, $sSQLQuery)){
+			$this->lastInsertID = mysqli_insert_id($this->sDBLink);
 			return true;
 		}else{
-			$this->sError = mysql_error($this->sDBLink);
+			$this->sError = mysqli_error($this->sDBLink);
 			return false;
 		}
 	}
 
 	function updateQuoteById($id, $quote) {
 		$query = "UPDATE qdb set quote = " . $quote . " WHERE id = " . $id ;
-		$result = mysql_query($query, $this->sDBLink) or die(mysql_error($this->sDBLink));
+		$result = mysqli_query($query, $this->sDBLink) or die(mysqli_error($this->sDBLink));
 		print_r($result);
 
 	}
@@ -88,13 +93,13 @@ class MySQL{
 	// Returns array of rows if exists, or FALSE on no rows
 	function setRunBuild($sSQLQuery){
 		$this->sLastQuery = $sSQLQuery;
-		$result = mysql_query($sSQLQuery, $this->sDBLink) or die(mysql_error($this->sDBLink));
+		$result = mysqli_query($this->sDBLink, $sSQLQuery) or die(mysqli_error($this->sDBLink));
 
 		$this->aResult = $result;
 
 
-		if (mysql_num_rows($result) > 0) {
-			while ($row = mysql_fetch_array($result)) {
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
 				$array[] = $row;
 			}
 			return $array;
@@ -119,9 +124,9 @@ class MySQL{
 	function getUserID($username, $password){
 		$query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
 		$this->sLastQuery = $query;
-		$result = mysql_query($query, $this->sDBLink) or die(mysql_error($this->sDBLink));
-		if (mysql_num_rows($result) == 1) {
-			while ($row = mysql_fetch_array($result)) {
+		$result = mysqli_query($query, $this->sDBLink) or die(mysqli_error($this->sDBLink));
+		if (mysqli_num_rows($result) == 1) {
+			while ($row = mysqli_fetch_array($result)) {
 				$a[] = $row;
 			}
 			foreach ($a as $data) {
@@ -136,9 +141,9 @@ class MySQL{
 	// Returns array of user info given userID
 	function getUserInfo($UserID){
 		$query = "SELECT * FROM users WHERE ID = '$UserID'";
-		$result = mysql_query($query, $this->sDBLink) or die(mysql_error($this->sDBLink));
-		if (mysql_num_rows($result) > 0) {
-			while ($row = mysql_fetch_array($result)) {
+		$result = mysqli_query($query, $this->sDBLink) or die(mysqli_error($this->sDBLink));
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
 				$array[] = $row;
 			}
 			return $array;
@@ -150,24 +155,24 @@ class MySQL{
 	// Returns true if username is taken
 	function checkTaken($username){
 		$query = "SELECT * FROM users WHERE username = '".$username."'";
-		$result = mysql_query($query, $this->sDBLink) or die(mysql_error($this->sDBLink));
-		if (mysql_num_rows($result) > 0){
+		$result = mysqli_query($query, $this->sDBLink) or die(mysqli_error($this->sDBLink));
+		if (mysqli_num_rows($result) > 0){
 			return TRUE;
 		}else{
 			return FALSE;
 		}
 	}
 
-	// Performs a 'mysql_real_escape_string' on the entire array/string
+	// Performs a 'mysqli_real_escape_string' on the entire array/string
 	function SecureData($aData){
 		if(is_array($aData)){
 			foreach($aData as $iKey=>$sVal){
 				if(!is_array($aData[$iKey])){
-					$aData[$iKey] = mysql_real_escape_string($aData[$iKey], $this->sDBLink);
+					$aData[$iKey] = mysqli_real_escape_string($aData[$iKey], $this->sDBLink);
 				}
 			}
 		}else{
-			$aData = mysql_real_escape_string($aData, $this->sDBLink);
+			$aData = mysqli_real_escape_string($aData, $this->sDBLink);
 		}
 		return $aData;
 	}

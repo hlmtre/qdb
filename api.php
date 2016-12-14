@@ -69,8 +69,8 @@ else {
 
 function submit() {
   $dirtyquote = $_POST['quote'];
-  $cleaned = mysql_escape_string($dirtyquote);
   $db = new MySQL();
+  $cleaned = mysqli_real_escape_string($db->getDB(), $dirtyquote);
   $query = "INSERT INTO qdb (quote) VALUES ('".$cleaned."')";
   $return = array();
 

@@ -1,0 +1,45 @@
+<!html>
+<html>
+Getting all quotes:
+<br>
+qdb.zero9f9.com/api.php?q=quotes&n=all
+<br>
+<i>returns JSON array of quote objects</i>
+<br>
+<code>
+[{"0":"263","id":"263","1":"\"i am some quote\"","quote":"\"i am some quote\"","2":"2014-03-14 12:49:26","date":"2014-03-14 12:49:26"},{"0":"262","id":"262","1":"\"i am some quote\"","quote":"\"i am some quote\"","2":"2014-03-14 12:49:04","date":"2014-03-14 12:49:04"}]
+</code>
+
+<br>
+<br>
+Getting one quote:
+<br>
+qdb.zero9f9.com/api.php?q=quote&id=id_here
+<br>
+<i>returns JSON quote object</i>
+<br>
+<code>
+{"0":"263","id":"263","1":"\"i am some quote\"","quote":"\"i am some quote\"","2":"2014-03-14 12:49:26","date":"2014-03-14 12:49:26"}
+</code>
+
+<br>
+<br>
+Submitting a quote:
+<br>
+POST to qdb.zero9f9.com/api.php, POST form field 'q' set to 'new', POST form field 'quote' set to the quote you want to submit.
+<br>
+<i> returns JSON status object</i>
+<br>
+a JSON object including the ID of your newly-submitted quote and some status information.
+
+<br>
+<br>
+Deleting a quote (requires a user be an admin):
+<br>
+GET to qdb.zero9f9.com/api.php?q=delete&id=id_here. GET field 'q' set to 'delete', field 'user' the username making the request, 'id' set to quote id.
+<br><i>WARNING</i>: This just deletes whatever quote you tell it to. Get the ID right.
+<br>
+<br>
+<i> returns JSON status object</i>
+<br>
+a JSON object status information.
