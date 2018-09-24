@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("./class.MySQL.php");
 require_once("./sanitizer.php");
 

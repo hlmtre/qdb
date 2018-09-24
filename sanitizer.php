@@ -1,4 +1,4 @@
-<?
+<?php
 function cleanInput($input) {
 	 
 	   $search = array(

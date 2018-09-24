@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("./util.php");
 require_once("./header.php");
 require_once("./sanitizer.php");

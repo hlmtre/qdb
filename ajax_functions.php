@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("./header.php");
 require_once("./sanitizer.php");
 
@@ -8,8 +8,8 @@ if ($_POST['verb'] == "update") {
 
 if ($_POST['verb'] == "submit") {
 	$dirtyquote = $_POST['quotebox'];
-	$cleaned = mysql_escape_string($dirtyquote);
 	$db = new MySQL();
+	$cleaned = mysqli_real_escape_string($db->getDB(), $dirtyquote);
 	$query = "INSERT INTO qdb (quote) VALUES ('".$cleaned."')";
 	$return = array();
 

@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("./class.MySQL.php");
 require_once("./sanitizer.php");
 ?>
@@ -7,7 +7,7 @@ require_once("./sanitizer.php");
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<?
+<?php
 function  autolink($message) { 
 	//Convert all urls to links
 	$message = preg_replace('#([\s|^])(www)#i', '$1http://$2', $message);
@@ -40,14 +40,17 @@ if (! $result) {
 }
 ?>
 <a href="./qdb.php">Back to quotes list</a>
-<a href="./update.php?id=<? echo $_GET['id'] ?>">Update</a>
-<?
+<a href="./update.php?id=<?php echo $_GET['id'] ?>">Update</a>
+<?php
 
 foreach ($result as $key => $value) {
 	echo "<div class='quoteContainer'>\n";
 	echo "<div class='quoteIDBox'>\n";
 	echo "<a href='./quote.php?id=".$value['id']."'>#".$value['id']."</a>";
 	echo "<button class='quotePlayBtn playBtn' id='".$value['id']."'>&#9658;</button><button class='quoteCancelBtn playBtn'>&#9632;</button>";
+	echo "<span class='quoteDate'>";
+	echo $value['date'];
+	echo "</span>";
 	echo "<div class='downArrow' id='".$value['id']."'>";
 	echo "&darr;";
 	echo "</div>";
@@ -218,7 +221,7 @@ function getRandomInt(min,max){
     }
 }
 </script>
-<?
+<?php
 echo "copyright LOLOLOL valve corporation";
 echo "</body></html>";
 

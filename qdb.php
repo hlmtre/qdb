@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("./class.MySQL.php");
 require_once("./sanitizer.php");
 ?>
@@ -12,7 +12,7 @@ require_once("./sanitizer.php");
 <body>
 <div id="content">
 <a href="./submit.php">Submit a new quote</a>
-<?
+<?php
 # doesn't need to be sanitized; not going to the database
 #print_r(sanitize($_GET));
 if ($_GET['sort'] == "vote")
@@ -227,7 +227,7 @@ function getRandomInt(min,max){
     }
 }
 </script>
-<?
+<?php
 echo "copyright LOLOLOL hlmtre 2015/2016";
 echo "</div>"; # end content div
 echo "</body></html>";
