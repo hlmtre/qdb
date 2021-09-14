@@ -6,7 +6,7 @@ require_once("./header.php");
 ?>
 <script src="./jquery-1.8.3.min.js"></script>
 <script src="./jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css" href="jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div id="headerLine"></div>
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
 				setTimeout(function() {
 					$("#headerLine").hide('blind', {}, 500)
-					window.location.href="./qdb.php#"+jobj.id;
+					window.location.href="/#"+jobj.id;
 				}, 2000);
 			}
 		);
