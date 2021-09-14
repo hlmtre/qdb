@@ -1,13 +1,44 @@
 body {
 	font-family: monospace;
+	background-color: #131516;
+	font-size: 1.1em;
+}
+
+#content {
+	color: #d8d4cf;
+	flex-direction: row;
+	margin: auto;
+	max-width: 900px;
+}
+
+textarea {
+	background-color: #2d2d2d;
+	color: #d8d4cf;
+}
+
+a:link {
+	color: #5798ec;
+}
+
+a:visited {
+	color: #7e80fd;
+}
+
+a:hover {
+	background-color: #3e3e3e;
+}
+
+div {
+	background-color:#2d2d2d;
+	overflow-wrap: break-word;
 }
 
 div.quoteContainer {
-	width: 900px;
 }
 
 div.upArrow {
 	float:right;
+	color: #72ff72;
 }
 
 div.downArrow:hover {
@@ -22,6 +53,7 @@ div.upArrow:hover {
 
 div.downArrow {
 	float:right;
+	color: #ff0000;
 }
 
 .quoteDate {
@@ -33,14 +65,16 @@ div.quoteIDBox {
 	border-color:#BFBFBF;
 	border-style:solid;
 	border-width: 1px;
-	background-color:#dedede;
+}
+
+div.quote_interior {
+	margin:5px;
 }
 
 div.quote {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #BFBFBF;
-	background-color:#dedede;
 	margin-bottom:5px;
 }
 
@@ -52,9 +86,6 @@ div.quote {
 	color:#ff0000;
 }
 
-#content {
-	width: 900px;
-}
 #search{
 	float:right;
 }
@@ -63,7 +94,6 @@ body {
 }
 
 div.quoteContainer {
-	width: 900px;
 }
 
 div.upArrow {
@@ -93,14 +123,12 @@ div.quoteIDBox {
 	border-color:#BFBFBF;
 	border-style:solid;
 	border-width: 1px;
-	background-color:#dedede;
 }
 
 div.quote {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #BFBFBF;
-	background-color:#dedede;
 	margin-bottom:5px;
 }
 
@@ -112,51 +140,8 @@ div.quote {
 	color:#ff0000;
 }
 
-#content {
-	width: 900px;
-}
 #search{
 	float:right;
-}
-
-.playBtn {
-	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
-	background:-moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:-webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:-o-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:-ms-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
-	background-color:#f9f9f9;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#666666;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
-}
-.playBtn:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9));
-	background:-moz-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:-webkit-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:-o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:-ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9',GradientType=0);
-	background-color:#e9e9e9;
-}
-.playBtn:active {
-	position:relative;
-	top:1px;
 }
 
 .quoteCancelBtn{
