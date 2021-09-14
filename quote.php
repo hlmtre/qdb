@@ -5,10 +5,12 @@ require_once("./sanitizer.php");
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
+<?php require_once("./script.php") ?>
 </head>
 <body>
+<div id="content">
 <?php
-function  autolink($message) { 
+function  autolink($message) {
 	//Convert all urls to links
 	$message = preg_replace('#([\s|^])(www)#i', '$1http://$2', $message);
 	$pattern = '#((http|https|ftp|telnet|news|gopher|file|wais):\/\/[^\s]+)#i';
@@ -67,9 +69,6 @@ foreach ($result as $key => $value) {
 	echo "</div>\n"; // end container div
 }
 ?>
-<script src="./jquery-1.8.3.min.js"></script>
-<script src="./jquery-ui.js"></script>
-<script src="./lodash.js"></script>
 <script>
 
 $(".upArrow").hover(
@@ -94,7 +93,7 @@ $(".upArrow").click(function(event) {
 	p['verb'] = "upvote";
 	$.post(
 		'ajax_functions.php',
-		p, 
+		p,
 		function(data) {
 			var jobj = jQuery.parseJSON(data);
 			event.target.innerHTML = jobj.text;
@@ -108,7 +107,7 @@ $(".downArrow").click(function(event) {
 	p['verb'] = "downvote";
 	$.post(
 		'ajax_functions.php',
-		p, 
+		p,
 		function(data) {
 			var jobj = jQuery.parseJSON(data);
 			event.target.innerHTML = jobj.text;
@@ -128,6 +127,7 @@ function getRandomInt(min,max){
 </script>
 <?php
 echo "copyright LOLOLOL valve corporation";
+echo "</div>"; // end content div
 echo "</body></html>";
 
 ?>

@@ -8,6 +8,7 @@ require_once("./sanitizer.php");
 <link rel="icon"
       type="image/png"
 			href="favicon.ico" />
+<?php require_once("./script.php") ?>
 </head>
 <body>
 <div id="content">
@@ -66,10 +67,8 @@ foreach ($rows as $key => $value) {
 	echo "</div>\n"; // end quote div
 	echo "</div>\n"; // end container div
 }
+
 ?>
-<script src="./jquery-1.8.3.min.js"></script>
-<script src="./jquery-ui.js"></script>
-<script src="./lodash.js"></script>
 <script>
 // responsive voice removed because they added an api key requirement
 // and i can't be arsed
