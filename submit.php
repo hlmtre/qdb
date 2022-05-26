@@ -4,8 +4,8 @@
 require_once("./header.php");
 
 ?>
-<script src="./jquery-1.8.3.min.js"></script>
-<script src="./jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -19,8 +19,8 @@ Submit quote
 <!-- gotta put the jquery binding after the element is created -->
 <script type="text/javascript">
 $(document).ready(function() {
-	$("#quoteForm").submit(function(event) { 
-		
+	$("#quoteForm").submit(function(event) {
+
 		var foo = $("#quotebox").val();
 		var p = {};
 		p['verb'] = "submit";
@@ -28,13 +28,15 @@ $(document).ready(function() {
 		event.preventDefault();
 		$.post(
 			'ajax_functions.php',
-			p, 
+			p,
 			function(data) {
 				var jobj = jQuery.parseJSON(data);
 				if (jobj.status == "success")
 					$("#headerLine").html("<span id='success' style='color:green'>Successfully submitted.</span>");
 				else if (jobj.status == "failure")
 					$("#headerLine").html("<span id='failure' style='color:red'>Failure for some reason. Sorry.</span>");
+				else
+					$("#headerLine").html("span id='uh oh'>lol wut</span>");
 
 				setTimeout(function() {
 					$("#headerLine").hide('blind', {}, 500)
