@@ -10,8 +10,8 @@ else
 	header('Location: /');
 
 ?>
-<script src="./jquery-1.8.3.min.js"></script>
-<script src="./jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="jquery-ui.css">
 </head>
 <body>
