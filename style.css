@@ -1,149 +1,159 @@
 body {
-	font-family: monospace;
-	background-color: #131516;
-	font-size: 1.1em;
+  font-family: monospace;
+  background-color: #131516;
+  font-size: 1.1em;
 }
 
 #content {
-	color: #d8d4cf;
-	flex-direction: row;
-	margin: auto;
-	max-width: 900px;
+  color: #d8d4cf;
+  flex-direction: row;
+  margin: auto;
+  max-width: 900px;
 }
 
 textarea {
-	background-color: #2d2d2d;
-	color: #d8d4cf;
+  background-color: #2d2d2d;
+  color: #d8d4cf;
 }
 
 a:link {
-	color: #5798ec;
+  color: #5798ec;
 }
 
 a:visited {
-	color: #7e80fd;
+  color: #7e80fd;
 }
 
 a:hover {
-	background-color: #3e3e3e;
+  background-color: #3e3e3e;
 }
 
 div {
-	background-color:#2d2d2d;
-	overflow-wrap: break-word;
+  background-color:#2d2d2d;
+  overflow-wrap: break-word;
 }
 
 div.quoteContainer {
 }
 
 div.upArrow {
-	float:right;
-	color: #72ff72;
+  float:right;
+  color: #72ff72;
 }
 
 div.downArrow:hover {
-	background-color: #E9F1E8;
-	cursor: pointer;
+  background-color: #E9F1E8;
+  cursor: pointer;
 }
 
 div.upArrow:hover {
-	background-color: #E9F1E8;
-	cursor: pointer;
+  background-color: #E9F1E8;
+  cursor: pointer;
 }
 
 div.downArrow {
-	float:right;
-	color: #ff0000;
+  float:right;
+  color: #ff0000;
 }
 
 .quoteDate {
-		margin-right:30%;
-		margin-left:30%;
+    margin-right:30%;
+    margin-left:30%;
 }
 
 div.quoteIDBox {
-	border-color:rgb(66, 72, 74);
-	border-style:solid;
-	border-width: 1px;
+  border-color:rgb(66, 72, 74);
+  border-style:solid;
+  border-width: 1px;
 }
 
 div.quote_interior {
-	margin:5px;
+  margin:5px;
 }
 
 div.quote {
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(66, 72, 74);
-	margin-bottom:5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(66, 72, 74);
+  margin-bottom:5px;
 }
 
 #success {
-	color:#32cd32;
+  color:#32cd32;
+  float: right;
 }
 
 #failure{
-	color:#ff0000;
+  color:#ff0000;
 }
 
 #search{
-	float:right;
+  float:right;
 }
 body {
-	font-family: monospace;
+  font-family: monospace;
 }
 
 div.quoteContainer {
 }
 
 div.upArrow {
-	float:right;
+  float:right;
 }
 
 div.downArrow:hover {
-	background-color: #E9F1E8;
-	cursor: pointer;
+  background-color: #E9F1E8;
+  cursor: pointer;
 }
 
 div.upArrow:hover {
-	background-color: #E9F1E8;
-	cursor: pointer;
+  background-color: #E9F1E8;
+  cursor: pointer;
 }
 
 div.downArrow {
-	float:right;
+  float:right;
 }
 
 .quoteDate {
-		margin-right:30%;
-		margin-left:30%;
+    margin-right:30%;
+    margin-left:30%;
 }
 
 div.quoteIDBox {
-	border-color:rgb(66, 72, 74);
-	border-style:solid;
-	border-width: 1px;
+  border-color:rgb(66, 72, 74);
+  border-style:solid;
+  border-width: 1px;
 }
 
 div.quote {
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(66, 72, 74);
-	margin-bottom:5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(66, 72, 74);
+  margin-bottom:5px;
 }
 
 #success {
-	color:#32cd32;
+  color:#32cd32;
 }
 
 #failure{
-	color:#ff0000;
+  color:#ff0000;
 }
 
 #search{
-	float:right;
+  float:right;
+}
+
+#quotebox {
+  width: 100%;
+  max-width: 100%;
+}
+
+#warning {
+  color:#ff0000;
 }
 
 .quoteCancelBtn{
-	font-size: 16px;
+  font-size: 16px;
 }

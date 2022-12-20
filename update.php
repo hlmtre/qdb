@@ -1,13 +1,10 @@
-<html>
-<head>
 <?php
 require_once("./header.php");
-require_once("./util.php");
 
 if (strlen($_GET['id']))
-	$quote = getQuoteTextById($_GET['id']);
+  $quote = getQuoteTextById($_GET['id']);
 else
-	header('Location: /');
+  header('Location: /');
 
 ?>
 <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
