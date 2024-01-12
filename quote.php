@@ -36,6 +36,11 @@ if (! $result) {
 <a href="./update.php?id=<?php echo $_GET['id'] ?>">Update</a>
 <?php
 
+if (isset($_SESSION['recaptcha_score'])) {
+  echo "<script> console.log('score: " . $_SESSION['recaptcha_score'] . "')</script>";
+  unset($_SESSION['recaptcha_score']);
+}
+
 if (isset($_SESSION['action_message'])) {
   echo $_SESSION['action_message'];
   unset($_SESSION['action_message']);

@@ -113,7 +113,7 @@ function getRandomInt(min,max){
 }
 </script>
 <?php
-echo "copyright LOLOLOL hlmtre 2015/2016";
+echo "copyright LOLOLOL";
 echo "</div>"; # end content div
 echo "</body></html>";
 

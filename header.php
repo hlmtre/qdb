@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 require_once("./class.MySQL.php");
 require_once("./sanitizer.php");
@@ -5,7 +6,6 @@ require_once("./util.php");
 require_once("./script.php");
 session_start();
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">

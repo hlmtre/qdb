@@ -33,7 +33,8 @@ if ($_POST['verb'] == "submit") {
 # END setting reCaptcha v3 validation data
 
     // print_r($response); 
-# Post form OR output alert and bypass post if false. NOTE: score conditional is optional
+# NOTE:
+# Post form OR output alert and bypass post if false. Score conditional is optional
 # since the successful score default is set at >= 0.5 by Google. Some developers want to
 # be able to control score result conditions, so I included that in this example.
 
@@ -60,10 +61,15 @@ if ($_POST['verb'] == "submit") {
     $return['id'] = $id;
     
     $return['submitted'] = $cleaned;
-    session_start();
     $_SESSION['action_message'] = "<div id='success'>Successfully submitted.</div>";
+    $_SESSION['recaptcha_score'] = $res['score'];
     header('Location: ./quote.php?id='.$return['id']);
   } 
+  else {
+    $return['status'] = ['failure'];
+    $_SESSION['action_message'] = "<div id='failure'>Failed reCaptcha check.</div>";
+    header('Location: ./submit.php');
+  }
 }
 
 if ($_POST['verb'] == "upvote") {
